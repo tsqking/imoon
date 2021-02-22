@@ -1,1 +1,2 @@
 export const SET_USER_INFO = 'SET_USER_INFO';
+export const ON_LOGIN_TITLE_CLICK = 'ON_LOGIN_TITLE_CLICK';
