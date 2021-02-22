@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.scss';
-import { store } from './store';
+import { AppDispatch, useAppDispatch } from './store';
 import { ON_LOGIN_TITLE_CLICK } from './store/actions/types';
 
 const App: React.FC = () => {
+  const dispatch: AppDispatch = useAppDispatch();
+  
   const onClick = () => {
-    store.dispatch({ type: ON_LOGIN_TITLE_CLICK });
+    dispatch({ type: ON_LOGIN_TITLE_CLICK });
   };
 
   return (
