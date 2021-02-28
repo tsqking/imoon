@@ -1,15 +1,27 @@
-import { Action } from '../../models/action';
-import { ON_LOGIN_TITLE_CLICK } from '../actions/types';
+import { createReducer, createSlice } from '@reduxjs/toolkit';
+import { onTitleClick } from '../actions/title';
+import { title } from '../actions/types';
 
-const initState = {};
-export const rootReducer = (state = initState, action: Action) => {
-  switch (action.type) {
-    case ON_LOGIN_TITLE_CLICK:
+const initialState = {};
+export const rootReducer = createReducer(initialState, (builder) => {
+  builder.addCase(onTitleClick, (state, action) => {
+    return {
+      ...state,
+      title: action.payload,
+    };
+  });
+});
+
+export const rootSlice = createSlice({
+  name: title,
+  initialState,
+  reducers: {
+    onClick: (state) => {
+      console.log(state);
+      console.log('hello title');
       return {
         user: {},
       };
-
-    default:
-      return state;
-  }
-};
+    },
+  },
+});

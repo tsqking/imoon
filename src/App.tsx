@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.scss';
 import { AppDispatch, useAppDispatch } from './store';
-import { ON_LOGIN_TITLE_CLICK } from './store/actions/types';
+import { onTitleClick } from './store/actions/title';
 
 const App: React.FC = () => {
   const dispatch: AppDispatch = useAppDispatch();
   
-  const onClick = () => {
-    dispatch({ type: ON_LOGIN_TITLE_CLICK });
+  const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    dispatch(onTitleClick('title'));
   };
 
   return (
